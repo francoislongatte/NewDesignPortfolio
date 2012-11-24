@@ -506,6 +506,44 @@ table {
 
 /* ================ */
 
+@charset "UTF-8";
+
+@font-face {
+  font-family: 'fontello';
+  src: url("./fontello.eot");
+  src: url("./fontello.eot?#iefix") format('embedded-opentype'), url("./fontello.woff") format('woff'), url("./fontello.ttf") format('truetype'), url("./fontello.svg#fontello") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+  font-family: 'fontello';
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: 0.2em;
+  text-align: center;
+  opacity: 0.8;
+    padding-bottom: 12px;
+  padding-top: 3px;
+  padding-left: 5px;
+/* Uncomment for 3D effect */
+/* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+/* fix buttons height */
+  line-height: 1em;
+/* you can be more comfortable with increased icons size */
+/* font-size: 120%; */
+}
+
+.icon-vimeo-circled:before { content: '\f307'; } /* '' */
+.icon-twitter-circled:before { content: '\f30a'; } /* '' */
+.icon-linkedin-circled:before { content: '\f319'; } /* '' */
+.icon-graduation-cap:before { content: '🎓'; } /* '\1f393' */
+.icon-lamp:before { content: '💡'; } /* '\1f4a1' */
+.icon-chart-area:before { content: '🔾'; } /* '\1f53e' */
 
 @font-face {
     font-family: 'PacificoRegular';
@@ -530,6 +568,7 @@ table {
 
 }
 
+
 @cTango : #f3714f;
 @cBlueAzur : #4ff3bf;
 @cVertAzur : #16a682;
@@ -542,6 +581,32 @@ body{
 	background-image : url(../images/bright_squares.png);
 	font:18px/1.5 BebasRegular ,sans-serif; 
 	text-align: center;
+}
+aside{
+	position: absolute;
+	right:20px;
+	a{
+	color: black;
+    display: block;
+    float: left;
+    font-size: 2.5em;
+    height: 51px;
+    line-height: 38px;
+    margin: 10px 10px 0 0;
+    overflow: hidden;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out ;
+    width: 55px;
+	}
+	a:hover{
+		color: @cTango;
+		-webkit-transform: rotate(360deg);
+		-moz-transform:rotate(360deg);
+		-o-transform: rotate(360deg);
+		-ms-transform:  rotate(360deg);
+		transform:  rotate(360deg);
+		transition: all 0.3s ease-in-out ;
+	}
 }
 section{
 	margin-top: 3em;
@@ -566,6 +631,7 @@ nav{
 	position: fixed;
 	bottom:-18px;
 	width: 100%;
+	z-index: 1;
 	
 	ul{
 		border-top:2px solid @cTango;
@@ -595,6 +661,9 @@ nav{
 		}
 	}
 }
+.ie67 nav { /* Pour IE6 et IE7 */  
+  position: inherit;
+}
 .slider{
 	ul{
 		padding:0;
@@ -620,7 +689,7 @@ nav{
 
 #fieldFilter{
 	background-color: black;
-	width: 860px;
+	width: 100%;
 	margin: 0 auto 0.9em;
 	height: 40px;
 	line-height: 40px;
@@ -660,39 +729,121 @@ footer{
 		font-family: PacificoRegular,serif;
 		border-bottom: 2px solid @cTango;
 }
+#about,#work,#contact{
+	width:90%;
+	max-width: 860px;
+	min-width: 626px;
+	margin: 0 auto;
+}
+#aboutme{
+		
+    	text-align: center;
+    	overflow: hidden;
+    	margin-bottom: 3em;
+	    .social{
+		   margin-top:0;
+		   float: left;
+		   max-width: 275px;
+		   min-width: 200px;
+    	width: 31.95%;
+	    }
+	    .social:nth-child(3n-4){
+		    margin: 0 2.05%;
+	    }
+	    p{
+    	font-family: Helvetica, sans-serif;
+    	margin:0;
+    	text-align: left;
+    	font-size: 0.778em;	
+    	padding:1.5em 1em 1em;
+    	color: rgba(0,0,0,.7);
+    	background-color: rgba(255,255,255,0.7);
+    	text-shadow: 0px 1px 0px #e3e3e3;
+        filter: dropshadow(color=#e3e3e3, offx=0, offy=1);
+	    }
+	    span{
+			background-color: rgba(255, 255, 255, 0.7);
+    border-top-left-radius: 150px;
+    border-top-right-radius: 150px;
+    display: block;
+    font-size: 2em;
+    height: 40px;
+    line-height: 60px;
+    margin: 0 auto;
+    width: 80px;
+	    }
+	}
 .skills{
-	font-family : georgia;
+	font-family: Helvetica, sans-serif;
+	font-size: 0.778em;
 	text-align: start;
-	width: 860px;
 	padding:5px 0;
+	width:100%;
+	max-width: 860px;
+	min-width: 626px;
 	margin: 0 auto;
 	
 	div{
 		margin:0 auto 2.8em;
 	}
+	description{
+		background-color:rgba(165,59,59,0.10);
+		padding: 1em;
+		
+	}
+	.description{
+		margin:0;
+		background-color: rgba(255,255,255,0.2);
+		
+	}
 	p{
-	background-color: rgba(165,59,59,0.10);
-	padding: 0.4em;
+	
+	padding:0.5em;
+	background-color: rgba(255,255,255,0.7);
+	color:#484848;
+	text-shadow: 0px 1px 0px #e3e3e3;
+        filter: dropshadow(color=#e3e3e3, offx=0, offy=1);
 	}
 	li{
-	width: 275px;
+	max-width: 275px;
+	min-width: 200px;
+    width: 31.95%;
 	float:left;
 	list-style-type: none; 
 	margin-bottom: 0.972em;
+	
+	}
+	li:nth-child(3n-4){
+		    margin: 0 2.05%;
+	    }
+	.round{
+		 margin-top: -37px;
+    text-align: center;
+	}
+	canvas{
+    margin: -150px auto 0;
+    z-index: 0;
 	}
 }
 .content{
-	width: 860px;
+	width: 100%;
+	max-width: 860px;
+	
 	padding:5px 0;
 	margin: 0 auto;
 	li{
-	width: 275px;
+	 max-width: 275px;
+    min-width: 216px;
+    width: 31.95%;
 	height: 190px;
 	float:left;
 	background-color: black;
 	list-style-type: none; 
 	margin-bottom: 0.972em;
 	}
+	li:nth-child(3n-4) {
+	 	margin: 0 2.05%; 
+	 }
 	
 }
 #paralax{
@@ -702,23 +853,25 @@ footer{
 		-moz-border-radius: 150px;
 		border-radius:150px;
 		background-color: black;
-		margin:0.4em auto 2.8em;
-}
-.pair{
-		margin: 0 0.972em;
+		margin:0.4em auto 3em;
 }
 #contact{
-	width: 860px;
-	margin: 0 auto;
 	overflow: hidden;
+	#information,form{
+		width: 46.5%;
+		max-width: 400px;
+		p,h1,#QR,div{
+			width: 100%;
+		}
+	}
 	#information{
 		margin-top: 0.4em;
-		width: 400px;
+		
 		background-color: rgba(165,59,59,0.1);
 		float:left;
 		text-align: left;
 		padding:0.6em;
-		font-family: PacificoRegular,serif;
+		font-family: Helvetica, sans-serif;
 		h1{
 			font-family: BebasRegular ,sans-serif; 
 			font-size: 1.333em;
@@ -726,19 +879,19 @@ footer{
 		}
 		#QR{
 			p{
-			width: 40%;
-			float: right;
-			padding-right: 50px;
-			margin:0;
+			display: inline-block;
+    margin: 0 0 0 1em;
+    position: relative;
+    top: -45px;
+    width: 115px;
 			}
 		}
 	}
 	form{
 	margin-top: 0.4em;
-	font-family: PacificoRegular,serif;
+	font-family: Helvetica, sans-serif;
 	text-align: left;
 	padding:0.6em;
-	width: 400px;
 	background-color: rgba(165,59,59,0.1);
 	float: right;
 		h1{
@@ -754,12 +907,15 @@ footer{
 	textarea{
 		width: 99.5%;
 	}
+	
 	#submit{
 		font-family: BebasRegular ,sans-serif; 
 		font-size: 1em;
 		color: #58595b;
 		text-shadow: 0 1px rgba(255,255,255,.5), inset 0 1px 1px #000;
 		width: 170px;
+		border-color: #c5c5c5;
+		border-color: rgba(0,0,0,.15) rgba(0,0,0,.15) rgba(0,0,0,.25);
 		background-color: #f3714f;
 		background-image: -webkit-linear-gradient(bottom, #f3714f, #f79676);
 		background-image: -moz-linear-gradient(bottom, #f3714f, #f79676);
@@ -767,10 +923,17 @@ footer{
 		background-image: -ms-linear-gradient(bottom, #f3714f, #f79676);
 		background-image: linear-gradient(to top, #f3714f, #f79676);
 		float: right;
+		
 	}
 	#submit:active{
-		color: #58595b;
-		text-shadow: 0 1px rgba(255,255,255,.5), inset 0 1px 1px #000;
+    background-color: black;
+    background-image: none;
+    background-image: -webkit-linear-gradient(bottom, grey, black);
+	background-image: -moz-linear-gradient(bottom,grey, black);
+	background-image: -o-linear-gradient(bottom, grey, black);
+	background-image: -ms-linear-gradient(bottom, grey, black);
+	background-image: linear-gradient(to top, grey, black);
+    color:grey;
 	}
 	label{
 		display:block;
@@ -779,44 +942,104 @@ footer{
 	}
 }
 
-.ai, .ps, .code, .design, .ergo, .mobile{
+.design, .ergo, .mobile{
 	background: url('../images/about/sprites.png') no-repeat;
 	display: block;
 	width: 130px;
-	height: 130px
-}
-
-.ps{
-	background-position: -150px 0;
+	height: 130px;
 }
 
 .mobile{
-	background-position: -300px -150px ;
+	background-position: -303px -150px ;
 }
 
 .ergo{
-	background-position: -300px 0;
+	background-position: -303px 0;
 }
 
 .design{
-	background-position: -150px -150px ;
+	background-position: -153px -150px ;
 }
 
-.code{
-	background-position: 0 -150px ;
-}
-
-.ai{
-	background-position: 0 0;
-}
 
 @media only screen and (max-width: 959px){}/* --> pour ecran en deca de 959px */
 
 @media only screen and (min-width: 768px) and (max-width: 959px){
-} /* --> pour tablet mode paysage */
-@media only screen and (max-width: 767px){
+	
+} 
+@media only screen and (max-width: 768px){
+	#fieldFilter,.content{
+			width: 90%;
+			min-width: 626px;
+		}
+	#about,#work,#contact{
+		width: 100%;
+		
+		}
+	#aboutme,.skills{
+		min-width: 626px;
+		width: 90%;
+		margin:0 auto;
+	}
+	#aboutme{
+		margin-bottom: 3em;
+	}
+	#work{
+		li{
+			margin:0 0 1em;
+			width: 48.45%;
+			max-width: 328px;
+			min-width: 200px;
+			
+		}
+		li:nth-child(even) {
+			margin:0;
+			margin-left:1.05em;
+			margin: 0px 0px 1em 1.05em;
+		}
+	}
+	#contact{
+		#information,form{
+			min-width: 626px;
+		width: 90%;
+		}
+		#information{
+		float: inherit;
+		margin:1em auto;
+		text-align: center;
+			h1,p{
+				width: 400px;
+				margin:0 auto 0.972em;
+			}
+			#QR{
+				 margin: 0 auto;
+			    position: relative;
+			    width: 171px;
+				p{
+				border: 0 none;
+			    padding: 0px;
+			    margin:2.5em 0 0;
+			    width: 100%;
+			    float: none;
+				}
+			}
+		}
+		
+		form{
+			clear: both;
+			float: inherit;
+			margin:0 auto;
+			text-align: center;
+			#submit{
+				float: inherit;
+				width: 100%;
+			}
+		}
+	}
 } /*--> pour tablet mode portrait */
-@media only screen and (min-width: 480px) and (max-width: 767px){} /*--> telephone mode paysage*/
+@media only screen and (min-width: 480px) and (max-width: 767px){
+	
+} /*--> telephone mode paysage*/
 @media only screen and (max-width: 480px){
 	body{
 		max-width: 480px;
@@ -831,11 +1054,13 @@ footer{
 		
 	}
 	img{
+		height: 100%;
 		width: 100%;
 	}
 	nav{
 		padding-top:1em;
 		position: inherit;
+		
 		li{
 			display: inline-block;
 			width: 100%;

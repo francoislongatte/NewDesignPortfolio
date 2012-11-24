@@ -1,0 +1,29 @@
+{
+  "name": "",
+  "glyphs": [
+    {
+      "uid": "0419da6446cb4f31093e2022793571ca",
+      "orig_css": "twitter-circled",
+      "orig_code": 62218,
+      "css": "twitter-circled",
+      "code": 62218,
+      "src": "entypo"
+    },
+    {
+      "uid": "21adad41ffebf469b2370d26bcb8a3c4",
+      "orig_css": "linkedin-circled",
+      "orig_code": 62233,
+      "css": "linkedin-circled",
+      "code": 62233,
+      "src": "entypo"
+    },
+    {
+      "uid": "6569bd1801e232180221ba0f6a4b8b27",
+      "orig_css": "vimeo-circled",
+      "orig_code": 62215,
+      "css": "vimeo-circled",
+      "code": 62215,
+      "src": "entypo"
+    }
+  ]
+}
