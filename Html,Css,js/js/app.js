@@ -26,7 +26,7 @@
 				if ($compteur <= ratio) {
 					ctxCiColorReplace.clearRect(0, 0, 200, 200);
 					ctxCiColorReplace.beginPath();
-					ctxCiColorReplace.arc(70, 70, 60, -1 / 2 * Math.PI, ($compteur + 0.01) * 2 * Math.PI - 1 / 2 * Math.PI);
+					ctxCiColorReplace.arc(75, 75, 60, -1 / 2 * Math.PI, ($compteur + 0.01) * 2 * Math.PI - 1 / 2 * Math.PI);
 					$compteur += 0.005;
 				} else {
 					clearInterval(monInterval);
