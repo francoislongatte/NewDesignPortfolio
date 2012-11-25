@@ -1041,15 +1041,91 @@ footer{
 	
 } /*--> telephone mode paysage*/
 @media only screen and (max-width: 480px){
-	body{
+	body,#about, #work, #contact,#aboutme,.skills {
+		width: 100%;
 		max-width: 480px;
-		min-width: 320px;
+		min-width: 300px;
 		margin: 0 auto;
+		padding-top: 0.1em;
+		header{
+			h1{
+				margin:1em auto 0.333em;
+			}
+		}
+	}
+	#paralax{
+		width: 200px;
+		height: 200px;
+	}
+	aside{
+		margin:1em auto 0;
+		text-align: center;
+		width: 165px;
+		position: inherit;
+		a{
+			margin:0;
+		}
+	}
+	
+	#aboutme {
+		h1{
+			margin-top:2em;
+		}
+		.social{
+	    	float: inherit;
+	    	width: 100%;
+	    }
+	    .social,.social:nth-child(3n-4){
+	    	margin: 1em auto 2em;
+	    }
+	}
+	.skills{
+			float: inherit;
+	    	width: 100%;
+		     li:nth-child(3n-4), li {
+			    margin: 1em auto 2em; 
+			    width: 100%;
+			    float:inherit;
+		     }
+		     p{
+		     margin:0;
+		     }
+		     div{
+			     margin:0 auto 1em;
+		     }
+		     .round{
+			     margin: -13px 0 0;
+		     }
+		     .description{
+			     margin:0 0 5em;
+		     }
+	    }
+	.slider{
+		ul{
+			margin-top: 2em;
+		}
+	}
+	#fieldFilter{
+		display: none;
+	}
+	#fieldFilter, .content{
+		min-width: 250px;
+		width: 90%;
+	}
+	#work .content{
+		li{
+			max-width: 400px;
+			min-width: 250px;
+			width: 100%;
+		}
+		li,li:nth-child(2n) {
+		   margin:0 0 1em;
+		}
 	}
 	header{
 		width: 100%;
 		h1{
-			margin:0.5em 0;
+			margin:1.5em 0 0.5em;
 		}
 		
 	}
