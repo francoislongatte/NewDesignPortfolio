@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+
+.icon-vimeo-circled:before { content: '\f307'; } /* '' */
+.icon-twitter-circled:before { content: '\f30a'; } /* '' */
+.icon-linkedin-circled:before { content: '\f319'; } /* '' */
+.icon-graduation-cap:before { content: '🎓'; } /* '\1f393' */
+.icon-lamp:before { content: '💡'; } /* '\1f4a1' */
+.icon-chart-area:before { content: '🔾'; } /* '\1f53e' */
