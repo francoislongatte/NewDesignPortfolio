@@ -5,6 +5,7 @@ Template Name: About
 ?>
 
 <section id="about">
+		
         <header>
             <h1>About</h1><span>Everything about me</span>
         </header>
@@ -14,51 +15,55 @@ Template Name: About
         <h1>francois longatte</h1>
 
         <div id="aboutme">
-            <div class="social">
-               
-	            <span class="icon-graduation-cap"></span>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla elementum ipsum a magna sollicitudin tincidunt. Pellentesque egestas neque sed lectus consequat non eleifend nibh pharetra. Integer a purus lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-
-            <div class="social pair">
-               
-            	<span class="icon-lamp"></span>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla elementum ipsum a magna sollicitudin tincidunt. Pellentesque egestas neque sed lectus consequat non eleifend nibh pharetra. Integer a purus lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-
-            <div class="social">
-               
-            	<span class="icon-chart-area"></span>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla elementum ipsum a magna sollicitudin tincidunt. Pellentesque egestas neque sed lectus consequat non eleifend nibh pharetra. Integer a purus lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
+            <?php 
+			     $TaxMeQueries = array(
+					    'tax_query' => array(
+					        array(
+					            'taxonomy' => 'whichType',
+					            'field' => 'slug',
+					            'terms' => 'me'
+				       )
+				    )
+				);
+				$the_tax_query = new WP_Query($TaxMeQueries);
+				while ( $the_tax_query->have_posts() ) : $the_tax_query->the_post();?>
+				<?php $exemple_metas = get_post_custom(); ?>
+				<div class="social">	
+						<span class="<?php echo $exemple_metas['class'][0] ?>"></span>
+						<?php the_content(); ?>
+				</div>
+			<?php	
+				endwhile;
+				wp_reset_postdata();
+			?>
         </div>
 
         <h1>Skills</h1>
 
         <ul class="skills">
-            <li>
-                <div class="design"></div>
-                <meter class="meterSkills" min="0" max="100" value="80">80/100</meter>
-                
-                <div class="description">
-                    <p>I design websites with esthetism, ergonomics, accessibility and usability by taking account of your needs.</p>
-                </div>
-            </li>
-
-            <li class="pair">
-                <div class="mobile"></div>
-                <meter class="meterSkills" min="0" max="100" value="30">30/100</meter>
-                <div class="description">
-                    <p>I work with web technologies to create multi-platform applications and multi-purpose.</p>
-                </div>
-            </li>
-
-            <li>
-                <div class="ergo"></div>
-                <meter class="meterSkills" min="0" max="100" value="95">95/100</meter>
-                <div class="description">
-                    <p>I create websites and content that fit all devices with a esperience unique to each user.</p>
-                </div>
-            </li>
-        </ul>
+        	<?php 
+			     $TaxSkillQueries = array(
+					    'tax_query' => array(
+					        array(
+					            'taxonomy' => 'whichType',
+					            'field' => 'slug',
+					            'terms' => 'skills'
+				       )
+				    )
+				);
+				$the_query = new WP_Query($TaxSkillQueries);
+				while ( $the_query->have_posts() ) : $the_query->the_post();?>
+				<?php $skills_metas = get_post_custom(); ?>
+				<li>
+						<div class="<?php echo $skills_metas['class'][0]; ?>"></div>	
+						<meter class="meterSkills" min="0" max="100" value="<?php echo $skills_metas['meterValue'][0]; ?>"><?php echo $skills_metas['meterValue'][0]; ?>/100</meter>
+						<div class="description">
+							<?php the_content(); ?>
+						</div>
+				</div>
+			<?php	
+				endwhile;
+				wp_reset_postdata();
+			?>
+       </ul>
     </section>

@@ -9,22 +9,30 @@
 	</aside>
     <section id="home">
         <header>
-            <h1>François</h1><span>Developer &amp; Web Designer</span>
+            <h1><a href="<?php bloginfo('wpurl'); ?>"><?php  bloginfo('name'); ?></a></h1><span><?php  bloginfo('description'); ?></span>
         </header>
         <?php wp_nav_menu(array( 'container' => 'nav' )); ?>
         <div class="slider">
             <ul>
-                <li><img src="images/slider/mac.png" alt="mac" width="450" height="316"></li>
+            	<?php 
+				$the_query_home = new WP_Query(array('post_type' => 'post'));
+				while ( $the_query_home->have_posts() ) : $the_query_home->the_post();?>
+
+					<li ><?php the_post_thumbnail('Slide'); ?></li>
+					 <?php	
+				endwhile;
+				wp_reset_postdata();
+			?>
             </ul>
 
             <div id="bRadio">
-                <a class="current" href="#"></a> <a href="#"></a> <a href="#"></a>
+                <a class="current" href="javascript:void(0)"></a><a href="javascript:void(0)"></a>
             </div>
         </div>
     </section>
-    <?php get_template_part( 'page', 'work' ); ?> 
-    <?php get_template_part( 'page', 'about' ); ?> 
-    <?php get_template_part( 'page', 'contact' ); ?>
-<?php
+    <?php 
+    	get_template_part( 'page', 'work' );  
+    	get_template_part( 'page', 'about' ); 
+    	get_template_part( 'page', 'contact' );
 	
 	get_footer();

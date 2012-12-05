@@ -575,7 +575,7 @@ table {
 header h1,#about>h1{
 	font-family: PacificoRegular,serif;
 }
-body,#information h1,form h1,#submit{
+body,#information h1,form h1,#submit,#newsSubmit{
 	font-family: BebasRegular,sans-serif;
 }
 
@@ -858,7 +858,7 @@ footer{
 }
 #contact{
 	overflow: hidden;
-	#information,form{
+	#information,form,#newsletter{
 		width: 46.5%;
 		max-width: 400px;
 		
@@ -939,8 +939,43 @@ footer{
 		width: 100%;
 		
 	}
+	#newsletter{
+		height: 110px;
+		float:left;
+		background-color: rgba(165,59,59,0.1);
+		 margin-top: 1.3em;
+		 padding: 0.6em;
+		 h1{
+			 font-size: 1.333em;
+			 text-align: left;
+		 }
+		 #formNews{
+			clear: both;
+			float: inherit;
+			margin:0 auto;
+			text-align: center;
+			background-color: rgba(255,255,255,0);
+			width: 95.5%;
+			input{
+				width: 50%;
+			}
+			#newsSubmit{
+				background-color: #F3714F;
+			    background-image: linear-gradient(to top, #F3714F, #F79676);
+			    border-color: rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.25);
+			    color: #58595B;
+			    float: right;
+			    font-size: 1em;
+			    width: 170px;
+			}
+			#newsSubmit:active{
+				float: inherit;
+				width: 100%;
+			}
+		}
+		 
+	}
 }
-
 .map, .qr-code, .design, .ergo, .mobile{
 	background: url(../images/about/sprites.png) no-repeat;
 }
@@ -1043,12 +1078,21 @@ footer{
 			}
 		}
 		
-		form{
+		#formNews{
 			clear: both;
 			float: inherit;
 			margin:0 auto;
 			text-align: center;
-			#submit{
+			#newsSubmit{
+				background-color: #F3714F;
+			    background-image: linear-gradient(to top, #F3714F, #F79676);
+			    border-color: rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.25);
+			    color: #58595B;
+			    float: right;
+			    font-size: 1em;
+			    width: 170px;
+			}
+			#newsSubmit:active{
 				float: inherit;
 				width: 100%;
 			}
