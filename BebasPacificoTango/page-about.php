@@ -7,12 +7,12 @@ Template Name: About
 <section id="about">
 		
         <header>
-            <h1>About</h1><span>Everything about me</span>
+            <h1>à Propos</h1><span >Tout sur moi</span>
         </header>
 
         <div id="paralax"></div>
 
-        <h1>francois longatte</h1>
+        <h1 itemprop="about" >francois longatte</h1>
 
         <div id="aboutme">
             <?php 
@@ -29,7 +29,7 @@ Template Name: About
 				while ( $the_tax_query->have_posts() ) : $the_tax_query->the_post();?>
 				<?php $exemple_metas = get_post_custom(); ?>
 				<div class="social">	
-						<span class="<?php echo $exemple_metas['class'][0] ?>"></span>
+						<span  class="<?php echo $exemple_metas['class'][0] ?>"></span>
 						<?php the_content(); ?>
 				</div>
 			<?php	
@@ -38,7 +38,7 @@ Template Name: About
 			?>
         </div>
 
-        <h1>Skills</h1>
+        <h1>Compétence</h1>
 
         <ul class="skills">
         	<?php 
@@ -56,11 +56,11 @@ Template Name: About
 				<?php $skills_metas = get_post_custom(); ?>
 				<li>
 						<div class="<?php echo $skills_metas['class'][0]; ?>"></div>	
-						<meter class="meterSkills" min="0" max="100" value="<?php echo $skills_metas['meterValue'][0]; ?>"><?php echo $skills_metas['meterValue'][0]; ?>/100</meter>
+						<span class="meterSkills" data-value="<?php echo $skills_metas['meterValue'][0]; ?>" data-min="0" data-max="100"><?php echo $skills_metas['meterValue'][0]; ?> /100</span>
+						<!--<meter class="meterSkills" min="0" max="100" value=""><?php //echo $skills_metas['meterValue'][0]; ?>/100</meter>-->
 						<div class="description">
 							<?php the_content(); ?>
 						</div>
-				</div>
 			<?php	
 				endwhile;
 				wp_reset_postdata();

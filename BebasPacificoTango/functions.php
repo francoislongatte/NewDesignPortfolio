@@ -8,7 +8,13 @@ add_theme_support('post-thumbnails');
 add_filter('manage_edit-about_columns', 'meterValue_add_post_columns');
 add_action('manage_posts_custom_column',  'meterValue_my_show_columns', 10, 2);
 add_filter( 'avatar_defaults', 'newgravatar' );
+add_filter( "the_excerpt", "add_excerpt_class" );
 
+function add_excerpt_class( $excerpt )
+{
+    $excerpt = str_replace( "<p", "<p class=\"memo\"", $excerpt );
+    return $excerpt;
+}   
 
 function newgravatar ($avatar_defaults) {
  	$myavatar = get_bloginfo('template_directory') . '/images/avatar.png';
@@ -17,9 +23,11 @@ function newgravatar ($avatar_defaults) {
 }
 
 if (function_exists('add_image_size')) {
-     add_image_size('WorkThumbnails', 275, 190, true);
+     add_image_size('WorkThumbnails', 265, 180, true);
      add_image_size('QR', 171, 171, true);
      add_image_size('Slide', 450, 0, true);
+     add_image_size('BlogAffiche', 537, 200, true);
+     add_image_size('BlogAfficheMobile', 275, 103, true);
 }
 
 function meterValue_add_post_columns($columns) {
@@ -35,7 +43,6 @@ function meterValue_my_show_columns($column_name, $id) {
             echo $meterValue_set;
     }
 }
-
 if(!function_exists('build_taxonomies')){
 	function build_taxonomies(){
 		register_taxonomy("techniques","works", array(
@@ -46,6 +53,15 @@ if(!function_exists('build_taxonomies')){
 			)
 
 		);
+		register_taxonomy("categorie","blogs", array(
+				"label" => "Categorie",
+				"hierarchical" => true,
+				"query_var" => true,
+				"rewrite" => true
+			)
+
+		);
+
 		register_taxonomy("whichType","about", array(
 				"label" => "whichType",
 				"hierarchical" => true,
@@ -58,8 +74,6 @@ if(!function_exists('build_taxonomies')){
 	}
 }
 
-
-
 if(! function_exists('myweb_sidebars')){
 	function myweb_sidebars(){
 		register_sidebar(
@@ -67,34 +81,34 @@ if(! function_exists('myweb_sidebars')){
 				'id' => 'primary',
 				'name' => __('primary'),
 				'description' => __( ' A short description of the sidebar.'),
-				'before_widget' => '<div id="%1$s" class="widget %2$s">',
-				'after_widget' => ' </div> ',
-				'before_title' => '<h3 class="widget-title">',
+				'before_widget' => '<div class="contentSidebar">',
+				'after_widget' => '</div>',
+				'before_title' => '<h3>',
 				'after_title' => '</h3>'
 
 			)
 		);
 		register_sidebar(
 			array(
-				'id' => 'Newsletter',
-				'name' => __('Newsletter'),
-				'description' => __( ' A short description of the sidebar.'),
-				'before_widget' => '<div id="%1$s" class="widget %2$s">',
-				'after_widget' => ' </div> ',
-				'before_widget' => '<h3 class="widget-title">',
+				'id' => 'flux',
+				'name' => __('flux'),
+				'description' => __( 'Abonnement au flux rss'),
+				'before_widget' => '<div class="contentSidebar">',
+				'after_widget' => '</div>',
+				'before_title' => '<h3>',
 				'after_title' => '</h3>'
 
 			)
 		);
 		register_sidebar(
 			array(
-				'id' => 'Text-information',
-				'name' => __('Text-information'),
+				'id' => 'search',
+				'name' => __('search'),
 				'description' => __( 'My text information about me.'),
-				'before_widget' => '<div id="%1$s" class="widget %2$s">',
-				'after_widget' => ' </div> ',
-				'before_widget' => '<h3 class="widget-title">',
-				'after_title' => '</h3>'
+				'before_widget' => '<div class="contentSidebar">',
+				'after_widget' => '</div>',
+				'before_title' => '',
+				'after_title' => ''
 
 			)
 		);
@@ -146,7 +160,7 @@ if(! function_exists('create_post_type')){
 				) ,
 				'menu_icon' => get_bloginfo('template_directory') . '/images/travaux.png',
 				'supports' =>array(
-					'title', 'editor', 'thumbnail', 'post-format'),
+					'title', 'editor', 'thumbnail', 'post-format', 'excerpt'),
 				'public' => true,
 				'has_archive' => true
 			)
@@ -160,7 +174,7 @@ if(! function_exists('create_post_type')){
 				) ,
 				'menu_icon' => get_bloginfo('template_directory') . '/images/blog.png',
 				'supports' =>array(
-					'title', 'editor', 'thumbnail', 'post-format','comments'),
+					'title', 'editor', 'thumbnail', 'post-format','comments','excerpt'),
 				'public' => true,
 				'has_archive' => true
 			)
